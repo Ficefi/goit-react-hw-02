@@ -66,16 +66,17 @@ export const App = () => {
         updateGood={updateGood}
         updateNeutral={updateNeutral}
         updateBad={updateBad}
-        Reset={reset}
+        reset={reset}
+        total={totalFeedback}
       />
-      {JSON.stringify(state) === JSON.stringify(value) ? (
-        <p>No Feedback yet</p>
-      ) : (
+      {totalFeedback > 0 ? (
         <Feedback
           values={value}
           totalFeedback={totalFeedback}
           positive={coefficient}
         />
+      ) : (
+        <p>No Feedback yet</p>
       )}
     </div>
   );
